@@ -32,18 +32,16 @@ const { boardId, column, items } = Astro.props
             data-column-id={column.id}
         >
             {
-                items
-                    .sort((a, b) => a.order - b.order)
-                    .map((item) => (
-                        <Card
-                            title={item.title}
-                            content={item.content}
-                            id={item.id}
-                            order={item.order}
-                            columnId={column.id}
-                            {boardId}
-                        />
-                    ))
+                items.map((item) => (
+                    <Card
+                        title={item.title}
+                        content={item.content}
+                        id={item.id}
+                        order={item.order}
+                        columnId={column.id}
+                        {boardId}
+                    />
+                ))
             }
         </ul>
         <NewCard columnId={column.id} {boardId} />
