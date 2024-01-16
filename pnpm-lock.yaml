@@ -23,6 +23,9 @@ dependencies:
   '@tailwindcss/forms':
     specifier: ^0.5.7
     version: 0.5.7(tailwindcss@3.4.1)
+  '@vercel/speed-insights':
+    specifier: ^1.0.4
+    version: 1.0.4
   astro:
     specifier: ^4.1.1
     version: 4.1.1(@types/node@20.10.8)(typescript@5.3.3)
@@ -1216,6 +1219,11 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
+    dev: false
+
+  /@vercel/speed-insights@1.0.4:
+    resolution: {integrity: sha512-Q7O0bnV11KUqNKAKA984YWIGxCjqgOuJdwH1cdItqlkUVTLbIm8BhObro6hJobGMSUHm+z7xjQ0YbC8ps1ekDg==}
+    requiresBuild: true
     dev: false
 
   /@volar/kit@1.11.1(typescript@5.3.3):

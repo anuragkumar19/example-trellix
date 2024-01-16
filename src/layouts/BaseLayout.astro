@@ -1,5 +1,6 @@
 ---
 import IconLink from '../components/IconLink.astro'
+import SpeedInsights from '@vercel/speed-insights/astro'
 
 interface Props {
     title: string
@@ -103,5 +104,6 @@ let userId = Astro.locals.userId
                 <slot />
             </div>
         </div>
+        <SpeedInsights />
     </body>
 </html>
