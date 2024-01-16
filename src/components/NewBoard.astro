@@ -20,11 +20,12 @@
         </label>
         <div class='mt-2'>
             <input
+                data-loading-disable
                 id='name'
                 name='name'
                 type='text'
                 required
-                class='form-input block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-blue sm:text-sm sm:leading-6'
+                class='form-input block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-blue sm:text-sm sm:leading-6 disabled:bg-slate-200'
             />
         </div>
     </div>
@@ -38,6 +39,7 @@
                 Color
             </label>
             <input
+                data-loading-disable
                 id='board-color'
                 name='color'
                 type='color'
@@ -47,8 +49,9 @@
             />
         </div>
         <button
+            data-loading-disable
             id='new-board-btn'
-            class='flex w-full justify-center rounded-md bg-brand-blue px-1 py-1 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue'
+            class='flex w-full justify-center rounded-md bg-brand-blue px-1 py-1 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue disabled:bg-slate-400'
             type='submit'
         >
             <span class='btn-content'>Create</span>

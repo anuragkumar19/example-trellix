@@ -1,5 +1,6 @@
 ---
 import IconLink from '../components/IconLink.astro'
+import SpeedInsights from '@vercel/speed-insights/astro'
 
 interface Props {
     title: string
@@ -22,6 +23,10 @@ let userId = Astro.locals.userId
         <script is:inline src='https://unpkg.com/htmx.org@1.9.10'></script>
         <script
             is:inline
+            src='https://unpkg.com/htmx.org/dist/ext/loading-states.js'
+        ></script>
+        <script
+            is:inline
             defer
             src='https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js'
         ></script>
@@ -42,9 +47,13 @@ let userId = Astro.locals.userId
             .htmx-request .btn-content {
                 display: none !important;
             }
+
+            [x-cloak] {
+                display: none !important;
+            }
         </style>
     </head>
-    <body class='h-screen bg-slate-100 text-slate-900'>
+    <body class='h-screen bg-slate-100 text-slate-900' hx-ext='loading-states'>
         <div class='h-full flex flex-col min-h-0'>
             <div
                 class='bg-slate-900 border-b border-slate-800 flex items-center justify-between py-4 px-8 box-border'
@@ -95,5 +104,6 @@ let userId = Astro.locals.userId
                 <slot />
             </div>
         </div>
+        <SpeedInsights />
     </body>
 </html>

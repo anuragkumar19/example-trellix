@@ -109,8 +109,10 @@ export async function getBoardData(boardId: number, accountId: string) {
             accountId: accountId,
         },
         include: {
-            items: true,
-            columns: { orderBy: { order: 'asc' } },
+            columns: {
+                orderBy: { order: 'asc' },
+                include: { items: { orderBy: { order: 'asc' } } },
+            },
         },
     })
 }

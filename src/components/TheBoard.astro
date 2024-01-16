@@ -22,12 +22,10 @@ const { board } = Astro.props
 
     <div class='flex flex-grow min-h-0 h-full items-start gap-4 px-8 pb-4'>
         {
-            [...board.columns.values()].map((col) => {
+            board.columns.map((col) => {
                 return (
                     <Column
-                        items={board.items.filter(
-                            (item) => item.columnId === col.id
-                        )}
+                        items={col.items}
                         column={{ id: col.id, name: col.name }}
                         boardId={board.id}
                     />

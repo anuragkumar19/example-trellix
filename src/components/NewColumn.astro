@@ -37,20 +37,22 @@ const { open = false, boardId } = Astro.props
                 type='text'
                 name='name'
                 @keydown.escape={`edit=false`}
-                class='border border-slate-400 w-full rounded-lg py-1 px-2 font-medium text-black'
+                class='border border-slate-400 w-full rounded-lg py-1 px-2 font-medium text-black disabled:bg-slate-200'
             />
             <div class='flex justify-between'>
                 <button
+                    data-loading-disable
                     id='new-col-btn'
-                    class='text-sm rounded-lg text-left p-2 font-medium text-white bg-brand-blue'
+                    class='text-sm rounded-lg text-left p-2 font-medium text-white bg-brand-blue disabled:bg-slate-400'
                     type='submit'
                 >
                     <span class='btn-content'>Save Column</span>
                     <span class='htmx-indicator'>Loading...</span>
                 </button>
                 <button
+                    data-loading-disable
                     @click={`edit=false`}
-                    class='text-sm rounded-lg text-left p-2 font-medium hover:bg-slate-200 focus:bg-slate-200'
+                    class='text-sm rounded-lg text-left p-2 font-medium hover:bg-slate-200 focus:bg-slate-200 disabled:bg-slate-400'
                     type='button'>Cancel</button
                 >
             </div>
