@@ -19,7 +19,6 @@ const { errors, data } = Astro.props
     target='/signup'
     hx-post='/signup'
     hx-swap='outerHTML'
-    hx-disabled-elt='this'
     hx-indicator='#signup-btn'
 >
     <div>
@@ -42,8 +41,9 @@ const { errors, data } = Astro.props
             name='email'
             type='email'
             autocomplete='email'
-            class='form-input block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-blue sm:text-sm sm:leading-6'
+            class='form-input block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-blue sm:text-sm sm:leading-6 disabled:bg-slate-200'
             aria-describedby={errors.email ? 'email-error' : 'signup-header'}
+            data-loading-disable
             required
             value={data.email}
         />
@@ -67,18 +67,20 @@ const { errors, data } = Astro.props
             id='password'
             name='password'
             type='password'
-            class='form-input block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-blue sm:text-sm sm:leading-6'
+            class='form-input block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-blue sm:text-sm sm:leading-6 disabled:bg-slate-200'
             autocomplete='current-password'
             aria-describedby='password-error'
+            data-loading-disable
             required
             value={data.password}
         />
     </div>
 
     <button
+        data-loading-disable
         id='signup-btn'
         type='submit'
-        class='flex w-full justify-center rounded-md bg-brand-blue px-1 py-1 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue'
+        class='flex w-full justify-center rounded-md bg-brand-blue disabled:bg-slate-400 px-1 py-1 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue'
     >
         <span class='btn-content'>Sign Up</span>
         <span class='htmx-indicator'>Loading...</span>

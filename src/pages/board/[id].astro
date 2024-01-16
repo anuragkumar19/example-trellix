@@ -166,12 +166,6 @@ if (Astro.request.method === 'POST') {
             const prevItemId = String(data.get('prevItemId'))
             const nextItemId = String(data.get('nextItemId'))
 
-            const item = board.items.findIndex(item => item.id === itemId && item.columnId === oldColumnId)
-
-            if(item === -1){
-                return new Response('', {status:400})
-            }
-
             const oldCol = board.columns.find(c => c.id === oldColumnId)
             const newCol = board.columns.find(c => c.id === newColumnId)
 
@@ -179,15 +173,21 @@ if (Astro.request.method === 'POST') {
                 return new Response('', {status:400})
             }
 
+            const itemIndex = oldCol.items.findIndex(item => item.id === itemId)
+
+            if(itemIndex === -1){
+                return new Response('', {status:400})
+            }
+
             //const oldColItems = board.items.filter((item) => item.columnId === oldCol.id)
-            const newColItems = board.items.filter((item) => item.columnId === newCol.id).sort((a, b) => a.order - b.order)
+            const newColItems = newCol.items
 
             if(prevItemId === 'undefined' && nextItemId === 'undefined'){
                 if(newColItems.length !== 0){
                     return new Response('', {status:400})
                 }
 
-                await reorder(itemId, newColumnId, 1)
+               await reorder(itemId, newColumnId, 1)
                return new Response('', {status:200})
             }
 

@@ -32,26 +32,29 @@ const { boardId, columnId } = Astro.props
 
             <!-- TODO: adjustable textarea -->
             <textarea
+                data-loading-disable
                 x-init='$el.focus()'
                 required
                 name='title'
                 placeholder='Enter a title for this card'
-                class='outline-none shadow text-sm rounded-lg w-full py-1 px-2 resize-none placeholder:text-sm placeholder:text-slate-500 h-14'
+                class='outline-none shadow text-sm rounded-lg w-full py-1 px-2 resize-none placeholder:text-sm placeholder:text-slate-500 h-14 disabled:bg-slate-200'
                 @keydown.escape={`edit=false`}
                 @keydown.shift.enter='$refs.saveCard.click()'></textarea>
             <div class='flex justify-between'>
                 <button
+                    data-loading-disable
                     id={`new-card-${columnId}`}
                     x-ref='saveCard'
-                    class='text-sm rounded-lg text-left p-2 font-medium text-white bg-brand-blue'
+                    class='text-sm rounded-lg text-left p-2 font-medium text-white bg-brand-blue disabled:bg-slate-400'
                     type='submit'
                 >
                     <span class='btn-content'>Save Card</span>
                     <span class='htmx-indicator'>Loading...</span>
                 </button>
                 <button
+                    data-loading-disable
                     @click='edit=false'
-                    class='text-sm rounded-lg text-left p-2 font-medium hover:bg-slate-200 focus:bg-slate-200'
+                    class='text-sm rounded-lg text-left p-2 font-medium hover:bg-slate-200 focus:bg-slate-200 disabled:bg-slate-400'
                     type='button'>Cancel</button
                 >
             </div>
